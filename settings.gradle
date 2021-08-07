@@ -1,0 +1,4 @@
+rootProject.name = "MyImageLoader"
+include ':app'
+include ':ImageLoaderLibrary'
+include ':benchmark'

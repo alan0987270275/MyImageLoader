@@ -15,15 +15,15 @@ Single ImageView            |  Multiple ImageView
 
 Simple use cases will look something like this:
 ```kotlin
-// Need to choose the corresponding lifecycleScope by your own
+// Need to pass activity, fragment or custom Coroutines
 // The default supported reource type are: 
 // [String] : "content", "file", "http", and "https" schemes only 
 // [DrawableRes]
-imageView.load(resource, lifecycleScope)
+imageView.load(resource, this)
 ```
 You can also add ```placeholder``` image and ```error``` image:
 ```kotlin
-imageView.load(resource,, lifecycleScope) {
+imageView.load(testingUrl[index] as String, this) {
     placeholder(R.drawable.ic_baseline_cloud_download_24)
     error(R.drawable.ic_baseline_error_24)
 }
@@ -37,13 +37,13 @@ By default, ImageLoader comes packaged with 3 transformations:
 transformationList.add(CircleCropTransformation())
 transformationList.add(GrayscaleTransformation())
 transformationList.add(BlurTransformation())
-imageView.load(resource, lifecycleScope) {
+imageView.load(resource, this) {
     transformations(transformationList)
 }
 ```
 or just one transformation.
 ```kotlin
-imageView.load(resource, lifecycleScope) {
+imageView.load(resource, this) {
     transformations(CircleCropTransformation())
 }
 ```
